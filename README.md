@@ -14,7 +14,7 @@ Ce bundle contient :
 
 ## Installation :
 1. Ajouter dans l'AppKernel.php :
-`
+``` php
 // app/AppKernel.php
 public function registerBundles()
 {
@@ -22,27 +22,27 @@ public function registerBundles()
 		new Orkestra\APCBundle\OrkestraAPCBundle()
 	);
 }
-`
+```
 
 2. Ajouter dans l'autoloader.php :
-`
+``` php
 // app/autoload.php
 $loader->registerNamespaces(array(
 	'Orkestra' => __DIR__.'/../vendor/bundles',
 );
-`
+```
 
 3. Configurez votre config.yml :
 **Configuration minimale :**
-`
+``` yaml
 # app/config/config.yml
 orkestra_apc:
 	# URL de votre site. Utilisé par la commande de clear.
     website_url: http://orkestra.dev
-`
+```
 
 **Configuration complète :**
-`
+``` yml
 # app/config/config.yml
 orkestra_apc:
 	# URL de votre site. Utilisé par la commande de clear.
@@ -51,31 +51,28 @@ orkestra_apc:
 	web_dir: %kernel.root_dir%/../web
 	# La commande de clear va créer un fichier dans votre dossier web, si jamais la suppression ne fonctionne pas (vous serez averti), un mot de passe est toujours plus sécurisant.
     access_password: my_password
-`
+```
 
 4. Utilisation de la classe APC :
-`
+``` php
 $apc = $this->container->get('orkestra.apc');
 $apc->set('new_value', 'example', 300); // 300 seconds before timeout (auto delete)
 if ($apc->exist('new_value')) {
-	$apc->get('new_value');
+    $apc->get('new_value');
 }
-
 $apc->delete('new_value');
-`
+```
 
 5. Enfin, l'utilisation de la commande :
-`
+``` bash
 Usage:
- apc:clear [--opcode] [--user]
-
+ php app/console apc:clear [--opcode] [--user]
 Options:
  --opcode  Supprime seulement le cache OPCode
  --user    Supprime seulement le cache utilisateur
-
 Help:
  Note: si aucune option n'est renseignée, les deux caches seront supprimés
-`
+```
 
 
 # English
@@ -86,7 +83,7 @@ This bundle contains :
 
 ## Installation :
 1. Add in AppKernel.php :
-`
+``` php
 // app/AppKernel.php
 public function registerBundles()
 {
@@ -94,27 +91,27 @@ public function registerBundles()
 		new Orkestra\APCBundle\OrkestraAPCBundle()
 	);
 }
-`
+```
 
 2. Add in autoloader.php :
-`
+``` php
 // app/autoload.php
 $loader->registerNamespaces(array(
 	'Orkestra' => __DIR__.'/../vendor/bundles',
 );
-`
+```
 
 3. Configure your config.yml :
 **Basic configuration :**
-`
+``` yml
 # app/config/config.yml
 orkestra_apc:
 	# Your website URL. Use by the clear command.
     website_url: http://orkestra.dev
-`
+```
 
 **Full configuration :**
-`
+``` yml
 # app/config/config.yml
 orkestra_apc:
 	# Your website URL. Use by the clear command.
@@ -123,28 +120,25 @@ orkestra_apc:
 	web_dir: %kernel.root_dir%/../web
 	# The clear command will create a file in your web folder, if the removal doesn't work (you will be warned), a password is safety.
     access_password: my_password
-`
+```
 
 4. APC class usage :
-`
+``` php
 $apc = $this->container->get('orkestra.apc');
 $apc->set('new_value', 'example', 300); // 300 seconds before timeout (auto delete)
 if ($apc->exist('new_value')) {
 	$apc->get('new_value');
 }
-
 $apc->delete('new_value');
-`
+```
 
 5. Finally, command usage :
-`
+``` bash
 Usage:
- apc:clear [--opcode] [--user]
-
+ php app/console apc:clear [--opcode] [--user]
 Options:
  --opcode  Clear only the opcode cache
  --user    Clear only the user cache
-
 Help:
  Note: without options, both caches will be deleted
-`
+```
