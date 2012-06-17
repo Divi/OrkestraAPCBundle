@@ -1,0 +1,21 @@
+{
+    "name": "orkestra/apc-bundle",
+    "type": "symfony-bundle",
+    "description": "APC Cache Bundle for Symfony 2 PHP Framework",
+    "keywords": ["APC Cache"],
+    "homepage": "https://github.com/Divi/OrkestraAPCBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sylvain Lorinet",
+            "email": "sylvain.lorinet@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": { "Orkestra\\APCBundle": "" }
+    },
+    "target-dir": "Orkestra/APCBundle"
+}
