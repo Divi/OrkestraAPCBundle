@@ -15,6 +15,7 @@ class APC
 	/**
 	 * @param string $name The param's name
 	 * @param mixed $value The param's value
+	 * @param int $timeout Timeout before auto deleting, in seconds
 	 * @param boolean $override If true the previous value will overrided if already exists.
 	 *
 	 * @return boolean

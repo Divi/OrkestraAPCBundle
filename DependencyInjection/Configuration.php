@@ -26,7 +26,6 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('website_url')->isRequired()->end()
                 ->scalarNode('web_dir')->defaultValue('%kernel.root_dir%/../web')->end()
                 ->scalarNode('access_password')->defaultValue('null')->end()
-                ->scalarNode('access_mode')->defaultValue('fopen')->end()
             ->end()
 		;
 
