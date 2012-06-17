@@ -1,0 +1,21 @@
+<?php
+
+if ({{ passwordNeeded }} && $_GET['password'] != '{{ password }}') {
+	die(-1);
+}
+
+$code = 0;
+
+if ({{ opcode }}) {
+	if (!apc_clear_cache()) {
+		$code += 1;
+	}
+}
+
+if ({{ user }}) {
+	if (!apc_clear_cache('user')) {
+		$code += 2;
+	}
+}
+
+die(json_encode(array('code' => $code)));
