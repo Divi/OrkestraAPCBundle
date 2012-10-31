@@ -27,7 +27,7 @@ class OrkestraAPCExtension extends Extension
 
 		// Check if the URL is valid
 		if (substr($config['website_url'], 0, strlen('http://')) != 'http://') {
-			$config['website_url'] = 'http://' . $config['webiste_url'];
+			$config['website_url'] = 'http://' . $config['website_url'];
 		}
 
 		foreach ($config as $name => $value) {
