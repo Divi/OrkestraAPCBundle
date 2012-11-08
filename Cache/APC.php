@@ -100,6 +100,30 @@ class APC
 	}
 
 	/**
+	 * @param string $name The key
+	 * @param int	 $step The value to increase
+	 * @param null	 $success True if success, false otherwise
+	 *
+	 * @return int|boolean Return the value in case of success, false otherwise
+	 */
+	public function increment($name, $step = 1, &$success = null)
+	{
+		return apc_inc($name, $step, $success);
+	}
+
+	/**
+	 * @param string $name The key
+	 * @param int	 $step The value to decrease
+	 * @param null	 $success True if success, false otherwise
+	 *
+	 * @return int|boolean Return the value in case of success, false otherwise
+	 */
+	public function decrement($name, $step = 1, &$success = null)
+	{
+		return apc_dec($name, $step, $success);
+	}
+
+	/**
 	 * @return boolean True if APC is enabled, false otherwise
 	 */
 	public function isEnabled()
