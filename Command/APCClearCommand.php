@@ -61,7 +61,11 @@ class APCClearCommand extends ContainerAwareCommand
 		}
 
 		$return = json_decode($jSonReturn, true);
-		switch ($return['code'] == -1) {
+		if (is_null($return)) {
+                        $output->writeln('The callback returned an invalid json, check your server/php settings.');
+                        return;
+                }
+		switch ($return['code']) {
 			case -1:
 				$output->writeln('The password does not match, please check the config.yml APC options !');
 			return;
