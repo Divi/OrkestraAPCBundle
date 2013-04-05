@@ -149,7 +149,7 @@ orkestra_apc:
 ``` yml
 # app/config/config.yml
 orkestra_apc:
-	# URL de votre site. Utilisé par la commande de clear.
+	# URL de votre site. Utilisée par la commande de clear.
     website_url: http://orkestra.dev
 	# Emplacement du dossier "web". Modifiez cette option seulement si vous avez déplacé le dossier.
 	web_dir: %kernel.root_dir%/../web
